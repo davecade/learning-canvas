@@ -27,19 +27,16 @@ class BinarySearchTree {
 }
 
 function binaryTreeInsertHelper(node, value) {
-    let pointer = node
 
     if(value < node.value) {
         if(node.left) {
-            pointer = node.left
-            binaryTreeInsertHelper(pointer, value)
+            binaryTreeInsertHelper(node.left, value)
         } else {
             node.left = new Node(value)
         }
     } else if (value >= node.value) {
         if(node.right) {
-            pointer = node.right
-            binaryTreeInsertHelper(pointer, value)
+            binaryTreeInsertHelper(node.right, value)
         } else {
             node.right = new Node(value)
         }
