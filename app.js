@@ -28,22 +28,15 @@ class BinarySearchTree {
 
 function binaryTreeInsertHelper(node, value) {
     let pointer = node
-    let direction = ''
 
     if(value < node.value) {
-        direction = "left"
-    } else if (value >= node.value) {
-        direction = "right"
-    }
-
-    if(direction==='left') {
         if(node.left) {
             pointer = node.left
             binaryTreeInsertHelper(pointer, value)
         } else {
             node.left = new Node(value)
         }
-    } else if (direction === "right") {
+    } else if (value >= node.value) {
         if(node.right) {
             pointer = node.right
             binaryTreeInsertHelper(pointer, value)
@@ -62,8 +55,13 @@ myTree.insert(20)
 myTree.insert(170)
 myTree.insert(15)
 myTree.insert(1)
+// myTree.insert(13)
+// myTree.insert(50)
+// myTree.insert(80)
+// myTree.insert(190)
+// myTree.insert(124)
 
-console.log(traverse(myTree.root))
+console.log(JSON.stringify(traverse(myTree.root)))
 
 function traverse(node) {
     const tree = { value: node.value };
