@@ -20,7 +20,7 @@ class BinarySearchTree {
     }
 
     lookup(value) {
-
+        
     }
 
     //remove
