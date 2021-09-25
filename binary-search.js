@@ -20,7 +20,7 @@ class BinarySearchTree {
     }
 
     lookup(value) {
-        
+        return binaryTreeSearchHelper(value, this.root)
     }
 
     //remove
@@ -43,6 +43,18 @@ function binaryTreeInsertHelper(node, value) {
     }
 }
 
+function binaryTreeSearchHelper(value, node) {
+    if(!node) return false
+
+    if(node.value === value) {
+        return true
+    } else if(value < node.value) {
+        return binaryTreeSearchHelper(value, node.left)
+    } else {
+        return binaryTreeSearchHelper(value, node.right)
+    }
+}
+
 
 const myTree = new BinarySearchTree();
 myTree.insert(9)
@@ -59,6 +71,7 @@ myTree.insert(1)
 // myTree.insert(124)
 
 console.log(JSON.stringify(traverse(myTree.root)))
+console.log(myTree.lookup(21))
 
 function traverse(node) {
     const tree = { value: node.value };
