@@ -8,4 +8,11 @@ const carsByMake1 = [
     ['camero']
 ]
 
-const carsByMake2: string[][] = []
+const carsByMake2: string[][] = [];
+
+//-- Help wih inference when extracting values
+const car = carMakers[0]
+const myCar = carMakers.pop()
+
+// -- flexible types
+const importantDates: (Date | string)[] = [new Date()]
