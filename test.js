@@ -1,58 +1,41 @@
-// This is an input class. Do not edit.
-class BinaryTree {
-    constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-      this.parent = null;
-    }
-  }
-  
-  function findSuccessor(tree, node, successor=[]) {
-      
-    if(!tree.left && !tree.right) {
-          if(tree.value===node.value || successor.length === 1) {
-                  if(tree.value) {
-                      successor.push(tree.value)
-                  }
-          }
-      } else {
-          
-          if(tree.left) {
-              findSuccessor(tree.left, node, successor)
-          }
-          
-          if(tree.value===node.value || successor.length === 1){
-                  if(tree.value) {
-                      successor.push(tree.value)
-                  }
-          }
-          
-          if(tree.right) {
-              findSuccessor(tree.right, node, successor)
-          }
-          
-      }
-      
-    console.log(successor)
-    return Number(successor[0]);
-  }
-  
-const myTree = {
-    "tree": {
-      "nodes": [
-        {"id": "1", "left": "2", "parent": null, "right": "3", "value": 1},
-        {"id": "2", "left": "4", "parent": "1", "right": "5", "value": 2},
-        {"id": "3", "left": null, "parent": "1", "right": null, "value": 3},
-        {"id": "4", "left": null, "parent": "2", "right": null, "value": 4},
-        {"id": "5", "left": "6", "parent": "2", "right": "7", "value": 5},
-        {"id": "6", "left": null, "parent": "5", "right": null, "value": 6},
-        {"id": "7", "left": "8", "parent": "5", "right": null, "value": 7},
-        {"id": "8", "left": null, "parent": "7", "right": null, "value": 8}
-      ],
-      "root": "1"
-    },
-    "node": "5"
+const test = [ "ab#z", "az#z" ]
+const test2 = [ "abc#d", "acc#c" ]
+const test3 = [ "x#y#z#", "a#" ]
+const test4 = [ "a###b", "b" ]
+const test5 = [ "Ab#z", "ab#z" ]
+
+const typedOutStrings = test => {
+  S = test[0].split("")
+  T = test[1].split("")
+
+  const resultS = getResults(S)
+  const resultT = getResults(T)
+
+  console.log("S", resultS)
+  console.log("T", resultT)
+
+  if(resultS === resultT) {
+    return true
+  } else {
+    return false
   }
 
-console.log(findSuccessor(myTree, 5))
+}
+
+const getResults = stringArray=> {
+  let result = []
+
+  for(let i = 0; i < stringArray.length; i++){
+    if(stringArray[i] !== "#") {
+      result.push(stringArray[i])
+    } else {
+      result = result.splice(0,result.length-1)
+    }
+  }
+
+  return result.join("")
+}
+
+
+console.log(typedOutStrings(test4))
+console.log(typedOutStrings(test5))
