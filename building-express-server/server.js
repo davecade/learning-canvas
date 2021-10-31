@@ -12,9 +12,11 @@ app.use((req, res, next) => {
 
 
 //-- ROUTES
-app.get('/', (req, res) => {
-    res.send("Welcome to my page")
+app.get('/:id', (req, res) => {
+    console.log(req.params)
+    res.status(404).send("not found")
 })
+
 
 app.post('/profile', (req, res) => {
     console.log(req.body)
