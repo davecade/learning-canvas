@@ -1,41 +1,51 @@
-const test = [ "ab#z", "az#z" ]
-const test2 = [ "abc#d", "acc#c" ]
-const test3 = [ "x#y#z#", "a#" ]
-const test4 = [ "a###b", "b" ]
-const test5 = [ "Ab#z", "ab#z" ]
+const fs = require('fs')
 
-const typedOutStrings = test => {
-  S = test[0].split("")
-  T = test[1].split("")
-
-  const resultS = getResults(S)
-  const resultT = getResults(T)
-
-  console.log("S", resultS)
-  console.log("T", resultT)
-
-  if(resultS === resultT) {
-    return true
-  } else {
-    return false
+fs.readFile('./input.txt', (err, data) => {
+  console.time('santa')
+  if(err) {
+    console.log('error')
   }
 
-}
+  const input = data.toString()
+  const arrayInput = input.split('')
 
-const getResults = stringArray=> {
-  let result = []
+  let result = 0
 
-  for(let i = 0; i < stringArray.length; i++){
-    if(stringArray[i] !== "#") {
-      result.push(stringArray[i])
-    } else {
-      result = result.splice(0,result.length-1)
+  // for(let i = 0; i < arrayInput.length; i++) {
+  //   if(arrayInput[i] === '(') {
+  //     result++
+  //   } else if (arrayInput[i] === ')') {
+  //     result--
+  //   }
+  // }
+  // console.log(result)
+  
+  // const finalResult = (() => {
+  //   for(let i = 0; i < arrayInput.length; i++) {
+  //     if(arrayInput[i] === '(') {
+  //       result++
+  //     } else if (arrayInput[i] === ')') {
+  //       result--
+  //     }
+  //     if(result===-1) {
+  //       return i+1
+  //     }
+  //   }
+  // })()
+  // console.log(finalResult)
+
+  let count = 0
+  arrayInput.some(item => {
+    if(item === '(') {
+      result++
+    } else if (item === ')') {
+      result--
     }
-  }
+    count++
+    return result === -1
+  })
 
-  return result.join("")
-}
+  console.log(count)
 
-
-console.log(typedOutStrings(test4))
-console.log(typedOutStrings(test5))
+  console.timeEnd('santa')
+})
