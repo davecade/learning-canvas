@@ -6,3 +6,7 @@ function send(url, data) {
 function encrypt(data) {
     return 'encrypted data'
 }
+
+module.exports = {
+    send
+}
