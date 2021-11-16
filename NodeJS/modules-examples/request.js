@@ -1,7 +1,7 @@
 
 
 function encrypt(data) {
-    return 'encrypted data'
+    return `encrypted data: ${data}`
 }
 
 function send(url, data) {

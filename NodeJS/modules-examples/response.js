@@ -1,9 +1,9 @@
 function read() {
-    return decrypt('data')
+    return decrypt('hello')
 }
 
 function decrypt(data){
-    return 'decrypted data'
+    return `decrypted data: ${data}`
 }
 
 module.exports = {
