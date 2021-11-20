@@ -1,11 +1,11 @@
 
 
-const request = require('./request')
-const response = require('./response')
+const { send } = require('./request')
+const { read } = require('./response')
 
 function makeRequest(url, data) {
-    request.send(url, data);
-    return response.read(data);
+    send(url, data);
+    return read(data);
 }
 
 const responseData = makeRequest('https://google.com', 'hello')
