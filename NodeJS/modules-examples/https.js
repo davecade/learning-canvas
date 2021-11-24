@@ -1,7 +1,7 @@
 
 
-import { send } from './request.mjs'
-import { read } from './response.mjs'
+const { send } = require('./request.js')
+const { read } = require('./response.js')
 
 function makeRequest(url, data) {
     send(url, data);

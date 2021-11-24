@@ -6,6 +6,6 @@ function decrypt(data){
     return `decrypted data: ${data}`
 }
 
-export {
+module.exports = {
     read
 }
