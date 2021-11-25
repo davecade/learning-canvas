@@ -1,11 +1,12 @@
 
 
-const { send } = require('./request.js')
-const { read } = require('./response.js')
+const internals = require('./internals')
+// const { send } = require('./internals/request.js')
+// const { read } = require('./internals/response.js')
 
 function makeRequest(url, data) {
-    send(url, data);
-    return read(data);
+    internals.request.send(url, data);
+    return internals.response.read(data);
 }
 
 const responseData = makeRequest('https://google.com', 'hello')
