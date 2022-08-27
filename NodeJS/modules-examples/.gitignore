@@ -2,8 +2,7 @@
 
 # dependencies
 /node_modules
-/building-express-server/node_modules
-/testing-with-jest/node_modules
+/client//node_modules
 /.pnp
 .pnp.js
 
