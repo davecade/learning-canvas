@@ -31,4 +31,3 @@ function HomePage() {
 export default HomePage;
 
 //You are up to Assets, Metadata, and CSS -- Page 1
-//test
