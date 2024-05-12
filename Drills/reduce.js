@@ -57,5 +57,3 @@ const flattenedArray = nestedArrays.reduce((acc, item) => {
 
 	return acc;
 }, []);
-
-console.log("FLAT? ", flattenedArray);
