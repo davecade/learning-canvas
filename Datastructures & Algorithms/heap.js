@@ -56,7 +56,6 @@ class Heap {
   }
 
   sinkdown(index) {
-    let maxIndex = index;
     let size = this.heap.length;
 
     while (true) {
